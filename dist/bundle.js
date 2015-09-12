@@ -48,8 +48,15 @@
 	var Tab       = i5ting.Tab;
 	var TabItem   = i5ting.TabItem;
 
+
+	var callback = function(key){
+	  console.log(key);
+	  alert(key);
+	}
+
+
 	React.render(
-	  React.createElement(Tab, null, 
+	  React.createElement(Tab, {tab_changed: callback}, 
 	    React.createElement(TabItem, {title: "tab说明", current: true}, 
 	      React.createElement("p", null, "tab说明")
 	    ), 
@@ -127,9 +134,10 @@
 	  render: function() {
 	    var cls = this.props.current ? "current_content" : "";
 	    var clsName = "i5ting_tab_content_item " + cls;
+	    
 	    return (
 	        React.createElement("ul", null, 
-	          React.createElement(TabHeader, null, 
+	          React.createElement(TabHeader, {tab_changed: this.props.tab_changed}, 
 	            this.props.children
 	          ), 
 	          React.createElement(TabContent, null, 
@@ -176,12 +184,12 @@
 	        arr.push(
 	          React.createElement(TabHeaderItem, {
 	          current: true, 
-	          title: a.title})
+	          title: a.title, tab_changed: this.props.tab_changed})
 	        );
 	      }else{
 	        arr.push(
 	          React.createElement(TabHeaderItem, {
-	          title: a.title})
+	          title: a.title, tab_changed: this.props.tab_changed})
 	        );
 	      }
 	    }
@@ -219,6 +227,8 @@
 	    $(container_li).addClass('current').siblings().removeClass('current');
 	    
 	    this.changeContent(i);
+	    // tab_changed callback
+	    this.props.tab_changed(i);
 	  },
 	  
 	  render: function() {

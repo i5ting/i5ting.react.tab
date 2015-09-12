@@ -28,12 +28,12 @@ var TabHeader = React.createClass({
         arr.push(
           <TabHeaderItem
           current
-          title={a.title}/>
+          title={a.title} tab_changed={this.props.tab_changed}/>
         );
       }else{
         arr.push(
           <TabHeaderItem
-          title={a.title}/>
+          title={a.title} tab_changed={this.props.tab_changed}/>
         );
       }
     }

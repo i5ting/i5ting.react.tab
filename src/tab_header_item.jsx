@@ -17,6 +17,8 @@ var TabHeaderItem = React.createClass({
     $(container_li).addClass('current').siblings().removeClass('current');
     
     this.changeContent(i);
+    // tab_changed callback
+    this.props.tab_changed(i);
   },
   
   render: function() {

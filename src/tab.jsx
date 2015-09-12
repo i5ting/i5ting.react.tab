@@ -26,9 +26,10 @@ var Tab = React.createClass({
   render: function() {
     var cls = this.props.current ? "current_content" : "";
     var clsName = "i5ting_tab_content_item " + cls;
+    
     return (
         <ul> 
-          <TabHeader>
+          <TabHeader tab_changed={this.props.tab_changed}>
             {this.props.children}
           </TabHeader>
           <TabContent>
