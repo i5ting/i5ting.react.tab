@@ -44,8 +44,9 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/** @jsx React.DOM */var Tab      = __webpack_require__(1).Tab;
-	var TabItem  = __webpack_require__(1).TabItem;
+	/** @jsx React.DOM */var i5ting    = __webpack_require__(2);
+	var Tab       = i5ting.Tab;
+	var TabItem   = i5ting.TabItem;
 
 	React.render(
 	  React.createElement(Tab, null, 
@@ -69,13 +70,9 @@
 	  document.getElementById('wrap1')
 	);
 
-/***/ },
-/* 1 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(2);
 
 /***/ },
+/* 1 */,
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -86,7 +83,8 @@
 	// css
 	__webpack_require__(3);
 
-	module.exports = __webpack_require__(8);
+	exports.Tab = __webpack_require__(8);
+	exports.TabItem = __webpack_require__(13);
 
 /***/ },
 /* 3 */
@@ -304,6 +302,50 @@
 	});
 
 	exports = module.exports = TabContentItem;
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */ // <div class='i5ting_tab_header'>
+	 //   <ul>
+	 //     <li class="current">
+	 //       <a href="#">tab说明</a>
+	 //     </li>
+	 //     <li>
+	 //       <a href="#">特性</a>
+	 //     </li>
+	 //     <li>
+	 //       <a href="#">开源协议</a>
+	 //     </li>
+	 //     <li>
+	 //       <a href="#">源码</a>
+	 //     </li>
+	 //     <li>
+	 //       <a href="#">张婷作品</a>
+	 //     </li>
+	 //   </ul>
+	 //  </div>
+	var TabHeaderItem   = __webpack_require__(10);
+	var TabHeader       = __webpack_require__(9);
+
+	var TabContentItem   = __webpack_require__(12);
+	var TabContent       = __webpack_require__(11);
+
+	var TabItem = React.createClass({displayName: "TabItem",
+	  render: function() {
+	    var a= [];
+	    a.push(React.createElement(TabHeader, null));
+	    a.push(React.createElement(TabContent, null));
+	    
+	    return (
+	      //not class but className
+	      {a:a}
+	    );
+	  }
+	});
+
+	exports = module.exports = TabItem;
 
 /***/ }
 /******/ ]);

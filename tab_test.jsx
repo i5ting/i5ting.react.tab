@@ -1,5 +1,6 @@
-var Tab      = require('./index').Tab;
-var TabItem  = require('./index').TabItem;
+var i5ting    = require('./src/index');
+var Tab       = i5ting.Tab;
+var TabItem   = i5ting.TabItem;
 
 React.render(
   <Tab>

@@ -5,4 +5,5 @@
 // css
 require('../assets/css/i5ting-jquery-tab.css');
 
-module.exports = require('./tab.jsx');
+exports.Tab = require('./tab.jsx');
+exports.TabItem = require('./tab_item.jsx');
