@@ -4,6 +4,8 @@ i5ting.react.tab是基于i5ting.jquery.tab使用reactjs重写的tab模块。
 
 [![npm version](https://badge.fury.io/js/i5ting.react.tab.svg)](http://badge.fury.io/js/i5ting.react.tab)
 
+![](doc/1.png)
+
 ## Install
 
     npm install --save i5ting.react.tab
