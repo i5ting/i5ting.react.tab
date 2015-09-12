@@ -1,5 +1,9 @@
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+var webpack = require('webpack');
+
 module.exports = {
-    entry: './src/tab_test.jsx',
+    entry: './tab_test.jsx',
     output: {
         filename: 'dist/bundle.js', //this is the default name, so you can skip it
         //at this directory our bundle file will be available
@@ -12,7 +16,12 @@ module.exports = {
                 //tell webpack to use jsx-loader for all *.jsx files
                 test: /\.jsx$/,
                 loader: 'jsx-loader?insertPragma=React.DOM&harmony'
-            }
+            },
+            {test: /\.es$/, loader: "babel"},
+            // {test: /\.css$/, loader: "style!css"},
+            {test: /\.(jpg|png)$/, loader: "url?limit=8192"},
+            {test: /\.scss$/, loader: "style!css!sass"},
+            {test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader")},
         ]
     },
     externals: {
@@ -22,5 +31,8 @@ module.exports = {
     },
     resolve: {
         extensions: ['', '.js', '.jsx']
-    }
+    },
+    plugins: [
+      new ExtractTextPlugin("i5ting-jquery-tab.css")
+    ]
 }

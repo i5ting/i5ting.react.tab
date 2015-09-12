@@ -44,8 +44,8 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/** @jsx React.DOM */var Tab      = __webpack_require__(1);
-	var TabItem  = __webpack_require__(6); 
+	/** @jsx React.DOM */var Tab      = __webpack_require__(1).Tab;
+	var TabItem  = __webpack_require__(1).TabItem;
 
 	React.render(
 	  React.createElement(Tab, null, 
@@ -73,6 +73,35 @@
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
+	module.exports = __webpack_require__(2);
+
+/***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// exports.TabItem  = require('./tab_item.jsx');
+	// exports.Tab      = require('./tab.jsx');
+
+
+	// css
+	__webpack_require__(3);
+
+	module.exports = __webpack_require__(8);
+
+/***/ },
+/* 3 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
 	/** @jsx React.DOM */ // <div class='i5ting_tab_header'>
 	 //   <ul>
 	 //     <li class="current">
@@ -92,9 +121,10 @@
 	 //     </li>
 	 //   </ul>
 	 //  </div>
-
-	var TabHeader       = __webpack_require__(3);
-	var TabContent       = __webpack_require__(5);
+	 
+	 
+	var TabHeader       = __webpack_require__(9);
+	var TabContent       = __webpack_require__(11);
 
 	var Tab = React.createClass({displayName: "Tab",
 	  render: function() {
@@ -116,7 +146,61 @@
 	exports = module.exports = Tab;
 
 /***/ },
-/* 2 */
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */ // <div class='i5ting_tab_header'>
+	 //   <ul>
+	 //     <li class="current">
+	 //       <a href="#">tab说明</a>
+	 //     </li>
+	 //     <li>
+	 //       <a href="#">特性</a>
+	 //     </li>
+	 //     <li>
+	 //       <a href="#">开源协议</a>
+	 //     </li>
+	 //     <li>
+	 //       <a href="#">源码</a>
+	 //     </li>
+	 //     <li>
+	 //       <a href="#">张婷作品</a>
+	 //     </li>
+	 //   </ul>
+	 //  </div>
+	var TabHeaderItem   = __webpack_require__(10);
+
+	var TabHeader = React.createClass({displayName: "TabHeader",
+	  render: function() {
+	    var arr = [];
+	    for(var i = 0; i< this.props.children.length; i++){
+	      var a = this.props.children[i].props;
+	      if(a.current){
+	        arr.push(
+	          React.createElement(TabHeaderItem, {
+	          current: true, 
+	          title: a.title})
+	        );
+	      }else{
+	        arr.push(
+	          React.createElement(TabHeaderItem, {
+	          title: a.title})
+	        );
+	      }
+	    }
+	    return (
+	      //not class but className
+	      React.createElement("div", {className: "i5ting_tab_header"}, 
+	        React.createElement("ul", null, " ", arr)
+	      )
+	    );
+	  }
+	});
+
+	exports = module.exports = TabHeader;
+
+/***/ },
+/* 10 */
 /***/ function(module, exports) {
 
 	/** @jsx React.DOM *///
@@ -153,87 +237,11 @@
 	exports = module.exports = TabHeaderItem;
 
 /***/ },
-/* 3 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/** @jsx React.DOM */ // <div class='i5ting_tab_header'>
-	 //   <ul>
-	 //     <li class="current">
-	 //       <a href="#">tab说明</a>
-	 //     </li>
-	 //     <li>
-	 //       <a href="#">特性</a>
-	 //     </li>
-	 //     <li>
-	 //       <a href="#">开源协议</a>
-	 //     </li>
-	 //     <li>
-	 //       <a href="#">源码</a>
-	 //     </li>
-	 //     <li>
-	 //       <a href="#">张婷作品</a>
-	 //     </li>
-	 //   </ul>
-	 //  </div>
-	var TabHeaderItem   = __webpack_require__(2);
-
-	var TabHeader = React.createClass({displayName: "TabHeader",
-	  render: function() {
-	    var arr = [];
-	    for(var i = 0; i< this.props.children.length; i++){
-	      var a = this.props.children[i].props;
-	      if(a.current){
-	        arr.push(
-	          React.createElement(TabHeaderItem, {
-	          current: true, 
-	          title: a.title})
-	        );
-	      }else{
-	        arr.push(
-	          React.createElement(TabHeaderItem, {
-	          title: a.title})
-	        );
-	      }
-	    }
-	    return (
-	      //not class but className
-	      React.createElement("div", {className: "i5ting_tab_header"}, 
-	        React.createElement("ul", null, " ", arr)
-	      )
-	    );
-	  }
-	});
-
-	exports = module.exports = TabHeader;
-
-/***/ },
-/* 4 */
-/***/ function(module, exports) {
-
-	/** @jsx React.DOM *///   <div class="i5ting_tab_content_item current_content">
-	//
-	//   </div>
-
-	var TabContentItem = React.createClass({displayName: "TabContentItem",
-	  render: function() {
-	    var cls = this.props.current ? "current_content" : "";
-	    var clsName = "i5ting_tab_content_item " + cls;
-	    return (
-	      React.createElement("div", {className: clsName}, 
-	        this.props.children
-	      )
-	    );
-	  }
-	});
-
-	exports = module.exports = TabContentItem;
-
-/***/ },
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/** @jsx React.DOM */var TabContentItem   = __webpack_require__(4);
-	var TabContent       = __webpack_require__(5);
+	/** @jsx React.DOM */var TabContentItem   = __webpack_require__(12);
+	var TabContent       = __webpack_require__(11);
 
 	// <div class="i5ting_tab_content">
 	//   <div class="i5ting_tab_content_item current_content">
@@ -276,48 +284,26 @@
 	exports = module.exports = TabContent;
 
 /***/ },
-/* 6 */
-/***/ function(module, exports, __webpack_require__) {
+/* 12 */
+/***/ function(module, exports) {
 
-	/** @jsx React.DOM */ // <div class='i5ting_tab_header'>
-	 //   <ul>
-	 //     <li class="current">
-	 //       <a href="#">tab说明</a>
-	 //     </li>
-	 //     <li>
-	 //       <a href="#">特性</a>
-	 //     </li>
-	 //     <li>
-	 //       <a href="#">开源协议</a>
-	 //     </li>
-	 //     <li>
-	 //       <a href="#">源码</a>
-	 //     </li>
-	 //     <li>
-	 //       <a href="#">张婷作品</a>
-	 //     </li>
-	 //   </ul>
-	 //  </div>
-	var TabHeaderItem   = __webpack_require__(2);
-	var TabHeader       = __webpack_require__(3);
+	/** @jsx React.DOM *///   <div class="i5ting_tab_content_item current_content">
+	//
+	//   </div>
 
-	var TabContentItem   = __webpack_require__(4);
-	var TabContent       = __webpack_require__(5);
-
-	var TabItem = React.createClass({displayName: "TabItem",
+	var TabContentItem = React.createClass({displayName: "TabContentItem",
 	  render: function() {
-	    var a= [];
-	    a.push(React.createElement(TabHeader, null));
-	    a.push(React.createElement(TabContent, null));
-	    
+	    var cls = this.props.current ? "current_content" : "";
+	    var clsName = "i5ting_tab_content_item " + cls;
 	    return (
-	      //not class but className
-	      {a:a}
+	      React.createElement("div", {className: clsName}, 
+	        this.props.children
+	      )
 	    );
 	  }
 	});
 
-	exports = module.exports = TabItem;
+	exports = module.exports = TabContentItem;
 
 /***/ }
 /******/ ]);

@@ -1,5 +1,5 @@
-var Tab      = require('./tab.jsx');
-var TabItem  = require('./tab_item.jsx'); 
+var Tab      = require('./index').Tab;
+var TabItem  = require('./index').TabItem;
 
 React.render(
   <Tab>
