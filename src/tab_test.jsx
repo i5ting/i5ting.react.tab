@@ -1,21 +1,12 @@
-# i5ting.react.tab
-
-用法
-
-```
-var TabItem  = require('./tab_item.jsx');
 var Tab      = require('./tab.jsx');
-
-var callback = function(key){
-
-}
+var TabItem  = require('./tab_item.jsx'); 
 
 React.render(
-  <Tab tab_changed={callback}>
+  <Tab>
     <TabItem title="tab说明" current>
       <p>tab说明</p>
     </TabItem>
-    <TabItem title="'特性'">
+    <TabItem title="'特性111'">
       特性
     </TabItem>
     <TabItem title="开源协议">
@@ -31,4 +22,3 @@ React.render(
   ,
   document.getElementById('wrap1')
 );
-```
