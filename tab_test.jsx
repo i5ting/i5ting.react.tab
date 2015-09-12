@@ -2,12 +2,10 @@ var i5ting    = require('./src/index');
 var Tab       = i5ting.Tab;
 var TabItem   = i5ting.TabItem;
 
-
 var callback = function(key){
   console.log(key);
   alert(key);
 }
-
 
 React.render(
   <Tab tab_changed={callback}>

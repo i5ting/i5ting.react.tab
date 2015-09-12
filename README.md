@@ -58,7 +58,7 @@ var Tab       = i5ting.Tab;
 var TabItem   = i5ting.TabItem;
 
 var callback = function(key){
-
+  alert(key);
 }
 
 React.render(
