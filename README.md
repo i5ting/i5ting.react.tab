@@ -46,8 +46,9 @@ i5ting.react.tab是基于i5ting.jquery.tab使用reactjs重写的tab模块。
 
 说明（以下2个文件是必须引用的）：
 
--  <link href="./node_modules/i5ting.react.tab/i5ting-jquery-tab.css" media="screen" rel="stylesheet" type="text/css">
-- <script src="./node_modules/i5ting.react.tab/libs/jquery/jquery.js" type="text/javascript"></script>
+    <link href="./node_modules/i5ting.react.tab/i5ting-jquery-tab.css" media="screen" rel="stylesheet" type="text/css">
+    <script src="./node_modules/i5ting.react.tab/libs/jquery/jquery.js" type="text/javascript"></script>
+    
 ## 用法
 
 tab_test.jsx
