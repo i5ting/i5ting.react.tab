@@ -6,7 +6,8 @@
   "scripts": {
     "start": "npm run serve | npm run dev",
     "serve": "./node_modules/.bin/http-server -p 8081",
-    "dev": "webpack-dev-server --progress --colors --port 8099"
+    "dev": "webpack-dev-server --progress --colors --port 8099",
+    "deploy":"npm publish ."
   },
   "author": "",
   "license": "ISC",
