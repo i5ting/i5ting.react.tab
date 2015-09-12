@@ -85,4 +85,4 @@ React.render(
 );
 ```
 
-说明`./dist/bundle.js`是`tab_test.jsx`作为入口文件生成的最终文件
+说明`./dist/bundle.js`是`tab_test.jsx`作为入口文件，使用webpack生成的最终文件
